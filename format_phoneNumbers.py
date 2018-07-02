@@ -1,4 +1,5 @@
-#Import JSON Library
+#This script requires python 3.7 which can be downloaded here: https://www.python.org/downloads/release/python-370/
+#Import the built-in JSON Library
 import json
 
 #Create a new List from the parsed Phones Numbers
