@@ -1,52 +1,52 @@
+#Import JSON Library
 import json
-from pprint import pprint
+
+#Create a new List from the parsed Phones Numbers
 directory = list()
-#open the people.json file as variable f
+#Open the people.json file as variable f
 with open('people.json') as f:
 	#import f as python dict "data"
 	data = json.load(f)
 
 	#iterate through data
 	for i in data:
-		#print(i)
-		#find keys with named "phone"
+		#Find key "phone"
 		currentNumber = i['phone']
 		newPhone = ""
-
-		#print('current phone # is ' + currentNumber)
-
+		#Set l to the length of the phone number
 		l = len(currentNumber)
+		#Create a new string x
 		x = ""
+		#Iterate through all the digits of the Phone Number
 		for n in currentNumber:
-			#print('n is currently ' + n)
+			#Check if each character is a integer by attemtping to convert it to a int
 			try:
-				int(n)	
+				int(n)
+				#A that character to x
 				x = x + n
+				#Store the length of x
 				length = len(x)
-
-			#	print('x is currently ' + x)
-				
-				#print(newPhone)
+			#If the character is not a integer, throw an error
 			except ValueError:
-			#print(n + " is not an int")
-				#print('the length of x is ' + len(x))
-				#print( "The length of x is " + str(length))
+				#At this point, check if length is greater than of equal to 3
 				if length >= 3:
+					#If true, concatenate it to the end of variable "newPhone"
 					newPhone = newPhone + x
-				#	print(newPhone)
+				#Reset x to nothing
 				x = ""
-
-		else:
-			if length >= 3:
-				newPhone = newPhone + x
-
+			#An Else statement to catch when there's not another n in currentNumber
+			else:
+				#check if "length is greater than of equal to 3. 
+				if length >= 3:
+					#If true, concatenate it to the end of variable "newPhone"
+					newPhone = newPhone + x
+		#Add "newPhone" to the end of list "directory"
 		directory.append(newPhone)
-		#print(directory)
+		#Iterate through each entry in "directory"
 		for i in directory:
+			#Set n to nothing
 			n = ""
+			#Add a hyphon after the 3rd and 6th characters in the Phone Number
 			n = i[0:3] + "-" + i[3:6] + "-" + i[6:10]
+		#Print the Phone Number
 		print(n)
-
-				
-
-		#json.dump(output, f)
