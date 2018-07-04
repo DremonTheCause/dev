@@ -21,11 +21,12 @@ with open('people.json') as f:
 		#Iterate through all the digits of the Phone Number
 		for n in currentNumber:
 			#Check if each character is a integer by attemtping to convert it to a int
+			
 			try:
 				int(n)
-				#A that character to x
+				#Add that character to x
 				x = x + n
-				#Store the length of x
+				##Store the length of x
 				length = len(x)
 			#If the character is not a integer, throw an error
 			except ValueError:
@@ -33,12 +34,12 @@ with open('people.json') as f:
 				if length >= 3:
 					#If true, concatenate it to the end of variable "newPhone"
 					newPhone = newPhone + x
+					#print("newPhone is " + newPhone)
 				#Reset x to nothing
 				x = ""
-			#An Else statement to catch when there's not another n in currentNumber
-			else:
-				#check if "length is greater than of equal to 3. 
-				if length >= 3:
+		#Add the last value of x to newPhone
+		#check if "length is greater than of equal to 3. 
+		if length >= 3:
 					#If true, concatenate it to the end of variable "newPhone"
 					newPhone = newPhone + x
 		#Add "newPhone" to the end of list "directory"
